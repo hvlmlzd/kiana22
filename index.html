@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy 22nd Birthday, Kiana!</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    body {
+      background-color: #000000;
+      color: #ffffff;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 600px;
+      text-align: center;
+      padding: 20px;
+      position: relative;
+      z-index: 10;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    /* Floating Balloons Background */
+    .balloon-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .balloon {
+      position: absolute;
+      bottom: -100px;
+      width: 40px;
+      height: 50px;
+      background-color: rgba(255, 215, 0, 0.7);
+      border-radius: 50% 50% 50% 50% / 40% 40% 60% 60%;
+      animation: floatUp 8s linear infinite;
+    }
+
+    .balloon::after {
+      content: "";
+      position: absolute;
+      bottom: -12px;
+      left: 19px;
+      width: 2px;
+      height: 14px;
+      background-color: #fff;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-120vh) rotate(20deg);
+        opacity: 0;
+      }
+    }
+
+    /* Screen 1 Styles */
+    .title-screen1 {
+      color: #FFFF00; /* Yellow */
+      font-size: 2.2rem;
+      margin-bottom: 25px;
+      font-weight: bold;
+    }
+
+    .interactive-img {
+      width: 250px;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 15px;
+      border: 4px solid #FFFF00;
+      cursor: pointer;
+      box-shadow: 0 0 20px rgba(255, 255, 0, 0.4);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .interactive-img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 30px rgba(255, 255, 0, 0.8);
+    }
+
+    .click-hint {
+      margin-top: 15px;
+      color: #aaaaaa;
+      font-size: 0.9rem;
+    }
+
+    /* Screen 2 Styles */
+    .message-card {
+      background-color: #111111;
+      border: 2px solid #333333;
+      border-radius: 15px;
+      padding: 25px;
+      text-align: left;
+      line-height: 1.6;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+      margin-bottom: 25px;
+      white-space: pre-line;
+      color: #f0f0f0;
+      font-size: 1.05rem;
+    }
+
+    .btn {
+      background-color: #FFFF00;
+      color: #000000;
+      border: none;
+      padding: 12px 28px;
+      font-size: 1rem;
+      font-weight: bold;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: background-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .btn:hover {
+      background-color: #e6e600;
+      transform: scale(1.05);
+    }
+
+    /* Screen 3 Styles (Gallery) */
+    .gallery-title {
+      color: #FFFF00;
+      margin-bottom: 20px;
+      font-size: 1.8rem;
+    }
+
+    .gallery-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .gallery-img-wrapper {
+      width: 100%;
+      height: 320px;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 2px solid #FFFF00;
+    }
+
+    .gallery-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .gallery-controls {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Floating Balloons Background -->
+  <div class="balloon-container" id="balloonContainer"></div>
+
+  <!-- SCREEN 1 -->
+  <div class="container" id="screen1">
+    <h1 class="title-screen1">Happy 22nd Birthday, Kiana!</h1>
+    <!-- Replace 'src' below with your main image link -->
+    <img 
+      src="6eca653a-8581-4934-b4be-e50ceab8480c.jpg" 
+      alt="Kiana" 
+      class="interactive-img" 
+      onclick="goToScreen(2)"
+    />
+    <p class="click-hint">(Click the picture! ✨)</p>
+  </div>
+
+  <!-- SCREEN 2 -->
+  <div class="container hidden" id="screen2">
+    <div class="message-card">
+happy birthday, kiana! ♡
+
+thank you for keeping the friendship we made in highschool. those years of being together don't feel like one. not because we don see each other, but because i always feel new in your presence.
+
+it is rare to have people who you get to laugh with, dream with, and share this life with. that's why i will always be grateful we came across each other's paths and became friends in this lifetime.
+
+i hope that you'll always carry a smile cause happiness looks good on yew! 
+
+i'm always here for you. thank you for sepanx-ing with me. HAHAHAHAHA
+
+love you big time, bb bhear!
+    </div>
+    <button class="btn" onclick="goToScreen(3)">Next ➔</button>
+  </div>
+
+  <!-- SCREEN 3 (Photo Gallery) -->
+  <div class="container hidden" id="screen3">
+    <h2 class="gallery-title">Memories ✨</h2>
+    <div class="gallery-container">
+      <div class="gallery-img-wrapper">
+        <img id="galleryImage" class="gallery-img" src="" alt="Gallery Image" />
+      </div>
+      <p id="galleryCounter" style="color: #aaa; font-size: 0.9rem;"></p>
+      <div class="gallery-controls">
+        <button class="btn" onclick="prevPhoto()">Previous</button>
+        <button class="btn" onclick="nextPhoto()">Next</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Create Floating Balloons
+    const balloonContainer = document.getElementById('balloonContainer');
+    const colors = ['#FFFF00', '#FFD700', '#FF69B4', '#00FFFF', '#FF4500', '#FFFFFF'];
+    
+    for (let i = 0; i < 20; i++) {
+      const balloon = document.createElement('div');
+      balloon.className = 'balloon';
+      balloon.style.left = `${Math.random() * 100}vw`;
+      balloon.style.animationDelay = `${Math.random() * 8}s`;
+      balloon.style.animationDuration = `${6 + Math.random() * 6}s`;
+      balloon.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+      balloonContainer.appendChild(balloon);
+    }
+
+    // Navigation Logic
+    function goToScreen(screenNumber) {
+      document.getElementById('screen1').classList.add('hidden');
+      document.getElementById('screen2').classList.add('hidden');
+      document.getElementById('screen3').classList.add('hidden');
+
+      document.getElementById(`screen${screenNumber}`).classList.remove('hidden');
+      
+      if (screenNumber === 3) {
+        updateGallery();
+      }
+    }
+
+    // Gallery Logic
+    // Replace these 3 image URLs with your own photo links!
+    const photos = [
+      "700cdca1-7d23-46c0-9697-c21c89c12593.jpg",
+      "5be3900c-cf01-4cdd-8c9d-e2538c574ab3.jpg",
+      "ae0848eb-1161-4adf-b807-ea1dfc96c35d.jpg"
+    ];
+
+    let currentPhotoIndex = 0;
+
+    function updateGallery() {
+      const imgElem = document.getElementById('galleryImage');
+      const counterElem = document.getElementById('galleryCounter');
+      imgElem.src = photos[currentPhotoIndex];
+      counterElem.textContent = `${currentPhotoIndex + 1} of ${photos.length}`;
+    }
+
+    function nextPhoto() {
+      currentPhotoIndex = (currentPhotoIndex + 1) % photos.length;
+      updateGallery();
+    }
+
+    function prevPhoto() {
+      currentPhotoIndex = (currentPhotoIndex - 1 + photos.length) % photos.length;
+      updateGallery();
+    }
+  </script>
+</body>
+</html>
