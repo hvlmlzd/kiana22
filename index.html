@@ -95,7 +95,7 @@
 
     /* Screen 1 Styles */
     .title-screen1 {
-      color: #FFFF00; /* Yellow */
+      color: #FFFF00;
       font-size: 2.2rem;
       margin-bottom: 25px;
       font-weight: bold;
@@ -173,3 +173,257 @@
     }
 
     /* Screen 3 Styles (Gallery) */
+    .gallery-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .gallery-img-wrapper {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .gallery-img {
+      max-width: 100%;
+      max-height: 400px;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      border-radius: 12px;
+      border: 2px solid #FFFF00;
+      box-shadow: 0 5px 20px rgba(255, 255, 0, 0.2);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .gallery-controls {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      margin-top: 10px;
+    }
+
+    /* GIF Section Styles */
+    .gif-container {
+      margin-top: 25px;
+      text-align: center;
+    }
+
+    .gif-title {
+      color: #FFFF00;
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+      letter-spacing: 1px;
+    }
+
+    .gif-img {
+      max-width: 100%;
+      max-height: 250px;
+      border-radius: 12px;
+      border: 2px solid #333333;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+    }
+
+    /* Spotify Card Section */
+    .spotify-card {
+      margin-top: 25px;
+      background: #121212;
+      border: 1px solid #1db954;
+      border-radius: 15px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      box-shadow: 0 0 20px rgba(29, 185, 84, 0.2);
+    }
+
+    .album-cover {
+      width: 130px;
+      height: 130px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+    }
+
+    .song-info {
+      text-align: center;
+    }
+
+    .song-title {
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: #ffffff;
+    }
+
+    .song-artist {
+      font-size: 0.9rem;
+      color: #b3b3b3;
+      margin-top: 3px;
+    }
+
+    .spotify-btn {
+      background-color: #1db954;
+      color: #ffffff;
+      margin-top: 5px;
+    }
+
+    .spotify-btn:hover {
+      background-color: #1ed760;
+      box-shadow: 0 6px 20px rgba(29, 185, 84, 0.5);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Floating Balloons Background -->
+  <div class="balloon-container" id="balloonContainer"></div>
+
+  <!-- SCREEN 1 -->
+  <div class="container" id="screen1">
+    <h1 class="title-screen1">Happy 22nd Birthday, Kiana!</h1>
+    <!-- Replace the src with your exact main image filename on GitHub -->
+    <img 
+      src="./21bf09d8-6559-454e-a17a-c551f36f1d6d.jpg" 
+      alt="Kiana" 
+      class="interactive-img" 
+      onclick="goToScreen(2)"
+    />
+    <p class="click-hint">(Click the picture! ✨)</p>
+  </div>
+
+  <!-- SCREEN 2 -->
+  <div class="container hidden" id="screen2">
+    <div class="message-card">
+happy birthday, kiana! ♡
+
+thank you for keeping the friendship we made in highschool. those years of being together don't feel like one. not because we don see each other, but because i always feel new in your presence.
+
+it is rare to have people who you get to laugh with, dream with, and share this life with. that's why i will always be grateful we came across each other's paths and became friends in this lifetime.
+
+i hope that you'll always carry a smile cause happiness looks good on yew! 
+
+i'm always here for you. thank you for sepanx-ing with me. HAHAHAHAHA
+
+love you big time, bb bhear!
+    </div>
+    <button class="btn" onclick="goToScreen(3)">Next ➔</button>
+  </div>
+
+  <!-- SCREEN 3 (Photo Gallery, GIF, & Spotify) -->
+  <div class="container hidden" id="screen3">
+    <div class="gallery-container">
+      <div class="gallery-img-wrapper">
+        <img id="galleryImage" class="gallery-img" src="" alt="Gallery Image" />
+      </div>
+      <p id="galleryCounter" style="color: #aaa; font-size: 0.9rem;"></p>
+      <div class="gallery-controls">
+        <button class="btn" onclick="prevPhoto()">Previous</button>
+        <button class="btn" onclick="nextPhoto()">Next</button>
+      </div>
+    </div>
+
+    <!-- HUNTR / X GIF Section -->
+    <div class="gif-container">
+      <div class="gif-title">HUNTR / X</div>
+      <!-- Replace src with your GIF filename or a working GIF web URL -->
+      <img 
+        src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExdW53bHlyM2dseHBxd2Rpd3F0Z2pvanExMWRyNmV1YzA0MHA2cmpsYiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l0HlBO7eyXzSZkJri/giphy.gif" 
+        alt="HUNTR / X GIF" 
+        class="gif-img" 
+      />
+    </div>
+
+    <!-- Spotify Link Section -->
+    <div class="spotify-card">
+      <img 
+        src="https://i.scdn.co/image/ab67616d0000b273b06381bc59f3cb065d642876" 
+        alt="Album Cover" 
+        class="album-cover" 
+      />
+      <div class="song-info">
+        <div class="song-title">You've Got Me</div>
+        <div class="song-artist">The Greeting Committee</div>
+      </div>
+      <a 
+        href="https://open.spotify.com/track/534uBUA3qVXAp1jLfK5tL1?si=ffd7eff5548f4ab0" 
+        target="_blank" 
+        class="btn spotify-btn"
+      >
+        🎧 Play on Spotify
+      </a>
+    </div>
+  </div>
+
+  <script>
+    // Create Floating Balloons
+    const balloonContainer = document.getElementById('balloonContainer');
+    const colors = ['#FFFF00', '#FFD700', '#FF69B4', '#00FFFF', '#FF4500', '#FFFFFF'];
+    
+    for (let i = 0; i < 20; i++) {
+      const balloon = document.createElement('div');
+      balloon.className = 'balloon';
+      balloon.style.left = `${Math.random() * 100}vw`;
+      balloon.style.animationDelay = `${Math.random() * 8}s`;
+      balloon.style.animationDuration = `${6 + Math.random() * 6}s`;
+      balloon.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+      balloonContainer.appendChild(balloon);
+    }
+
+    // Navigation Logic with Screen Transitions
+    function goToScreen(screenNumber) {
+      const screens = [document.getElementById('screen1'), document.getElementById('screen2'), document.getElementById('screen3')];
+      
+      screens.forEach(s => s.classList.add('hidden'));
+
+      const targetScreen = document.getElementById(`screen${screenNumber}`);
+      targetScreen.classList.remove('hidden');
+      
+      // Re-trigger slide animation
+      targetScreen.style.animation = 'none';
+      targetScreen.offsetHeight;
+      targetScreen.style.animation = 'slideIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards';
+
+      if (screenNumber === 3) {
+        updateGallery();
+      }
+    }
+
+    // Gallery Logic - Make sure these 3 filenames match your exact uploaded image files!
+    const photos = [
+      "./5be3900c-cf01-4cdd-8c9d-e2538c574ab3.jpg",
+      "./6eca653a-8581-4934-b4be-e50ceab8480c.jpg",
+      "./700cdca1-7d23-46c0-9697-c21c89c12593.jpg"
+    ];
+
+    let currentPhotoIndex = 0;
+
+    function updateGallery() {
+      const imgElem = document.getElementById('galleryImage');
+      const counterElem = document.getElementById('galleryCounter');
+      
+      imgElem.style.opacity = '0';
+      imgElem.style.transform = 'scale(0.97)';
+      
+      setTimeout(() => {
+        imgElem.src = photos[currentPhotoIndex];
+        counterElem.textContent = `${currentPhotoIndex + 1} of ${photos.length}`;
+        imgElem.style.opacity = '1';
+        imgElem.style.transform = 'scale(1)';
+      }, 200);
+    }
+
+    function nextPhoto() {
+      currentPhotoIndex = (currentPhotoIndex + 1) % photos.length;
+      updateGallery();
+    }
+
+    function prevPhoto() {
+      currentPhotoIndex = (currentPhotoIndex - 1 + photos.length) % photos.length;
+      updateGallery();
+    }
+  </script>
+</body>
+</html>
